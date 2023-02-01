@@ -1,0 +1,1 @@
+behave features\chat_bot.feature --no-capture -f plain
