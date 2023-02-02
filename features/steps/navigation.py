@@ -1,6 +1,10 @@
+import time
+
 from behave import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 from features.locators.base_page import BasePageLocators
 from features.locators.chat_bot import ChatBotLocators
@@ -19,6 +23,7 @@ def homepage(context):
     context.browser.maximize_window()
     page = HomePage(context.browser)
     context.browser.get(page.url)
+    # page.driver.get(page.url)
 
 
 @then('I am on the "(.*)" page')
@@ -43,7 +48,7 @@ def correct_title(context, title):
 
 @step('I see greetings messages')
 def chat_messages(context):
-    context.browser.implicitly_wait(10)
+    time.sleep(2)
 
     greeting_element = context.browser.find_element(*ChatBotLocators.CHAT_GREETING)
     greeting_text = "Hi there! I’m Lineate Bot and would like to assist you. What brings you here today?"
@@ -57,6 +62,7 @@ def chat_messages(context):
 @step('The chat is ended')
 def end_of_the_chat(context):
     chat_cl = ChatBot(context.browser)
+    WebDriverWait(chat_cl.driver, 15).until(expected_conditions.visibility_of_element_located(ChatBotLocators.CHAT_END))
     chat_footer = chat_cl.element_finder(ChatBotLocators.CHAT_END)
     footer_text = "Your chat has ended."
     assert footer_text in chat_footer.text

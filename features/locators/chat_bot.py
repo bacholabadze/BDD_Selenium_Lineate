@@ -9,5 +9,6 @@ class ChatBotLocators:
     CHAT_FRONT_END = (By.XPATH, '//*[@id="live-chat-widget"]/div/div/div[1]/div/section/div/div[5]/div/div/div[2]/div/button[1]/div')
     CHAT_B2B = (By.XPATH, '//*[@id="live-chat-widget"]/div/div/div[1]/div/section/div/div[8]/div/div/div[2]/div/button[1]/div')
     CHAT_DIRECTOR = (By.XPATH, '//*[@id="live-chat-widget"]/div/div/div[1]/div/section/div/div[17]/div/div/div[2]/div/button[3]/div')
-    CHAT_INPUT = (By.CSS_SELECTOR, '#live-chat-widget > div > div > div.input-container.m-bottom-2.no-branding > div > div.VizExFormControl__FormControlWrapper-p2q08x-0.cJJItb > div')
+    # CHAT_INPUT = (By.CSS_SELECTOR, '#live-chat-widget > div > div > div.input-container.m-bottom-2.no-branding > div > div.VizExFormControl__FormControlWrapper-p2q08x-0.cJJItb > div')
+    CHAT_INPUT = (By.CSS_SELECTOR, "#live-chat-widget > div > div > div.input-container.m-bottom-2.no-branding > div > div.VizExFormControl__FormControlWrapper-grniqd-0.hNLrCz > div")
     CHAT_END = (By.XPATH, '//*[@id="live-chat-widget"]/div/div/div[1]/div/div/p/i18n-string')

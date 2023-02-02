@@ -46,9 +46,9 @@ def step_impl(context, button_name):
 
 @step('I type "(.*)" in the chat')
 def step_impl(context, type_text):
-    time.sleep(3)
+    time.sleep(4)
     chat_cl = ChatBot(context.browser)
-    WebDriverWait(chat_cl.driver, 10).until(expected_conditions.element_to_be_clickable(ChatBotLocators.CHAT_INPUT))
+    WebDriverWait(chat_cl.driver, 10).until(expected_conditions.visibility_of_element_located(ChatBotLocators.CHAT_INPUT))
     chat_cl.type_in_chat(type_text)
 
 
